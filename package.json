@@ -1,0 +1,86 @@
+{
+  "name": "vite-react",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "prettier": "prettier --write ./",
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "commit": "git add . &&  git cz"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.2.6",
+    "antd": "^5.9.2",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.16.0",
+    "vite-plugin-legacy": "^2.1.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,vue,jsx}": [
+      "npm run lint",
+      "npm run prettier"
+    ],
+    "src/**/*.{vue,less,postcss,css,scss}": [
+      "stylelint --max-warnings 0"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.2.0",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "autoprefixer": "^10.4.16",
+    "commitizen": "^4.3.0",
+    "commitlint": "^17.7.1",
+    "commitlint-config-cz": "^0.13.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
+    "eslint": "^8.45.0",
+    "eslint-config-mature": "^0.3.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "husky": "^8.0.3",
+    "i": "^0.3.7",
+    "lint-staged": "^14.0.1",
+    "npm": "^10.1.0",
+    "postcss": "^8.4.30",
+    "postcss-px-to-viewport": "^1.1.1",
+    "postcss-scss": "^4.0.8",
+    "prettier": "^3.0.3",
+    "rollup-plugin-external-globals": "^0.8.0",
+    "rollup-plugin-visualizer": "^5.9.2",
+    "rxjs": "^7.8.1",
+    "scss": "^0.2.4",
+    "scss-loader": "^0.0.1",
+    "sinon-chai": "^3.7.0",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vite-plugin-compression2": "^0.10.5",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-html": "^3.2.0",
+    "vite-plugin-restart": "^0.3.1",
+    "vite-plugin-vue-images": "^0.6.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": ".cz-config.cjs"
+    }
+  }
+}
