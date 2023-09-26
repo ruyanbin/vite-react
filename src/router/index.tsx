@@ -1,16 +1,15 @@
 import { Navigate, useRoutes } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
-import { Spin } from 'antd';
-
-const layLoad = (path: string) => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-  const Element = lazy(() => import(`@v/${path}`));
-  return (
-    <Suspense fallback={<Spin />}>
-      <Element />
-    </Suspense>
-  );
-};
+import { RouterObj } from '@/typings/router';
+import Login from '@v/Login/index.tsx';
+// 一异步处理所有路由
+const modules = import.meta.glob('./modules/*.tsx', { eager: true });
+// 处理路由
+export const routerArray: RouterObj[] = [];
+Object.keys(modules).forEach((item) => {
+  Object.keys(modules[item]).forEach((key: any) => {
+    routerArray.push(...modules[item][key]);
+  });
+});
 
 const routes = [
   {
@@ -19,14 +18,15 @@ const routes = [
   },
   {
     path: '/login',
-    element: layLoad('Login/index.tsx'),
+    element: <Login />,
   },
+  ...routerArray,
   {
-    path: '/home',
-    element: layLoad('Hone/index.tsx'),
+    path: '*',
+    element: <Navigate to="/404" />,
   },
 ];
-s;
+
 const Router = () => {
   const element = useRoutes(routes);
   return element;
