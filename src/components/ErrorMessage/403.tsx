@@ -1,4 +1,4 @@
-import { Result } from 'antd';
+import { Button, Result } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { HOME_URL } from '@/config/config.ts';
 
