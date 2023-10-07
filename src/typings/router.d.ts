@@ -8,3 +8,6 @@ declare interface RouterObj {
     title: string;
   };
 }
+declare interface modules {
+  default: RouterObj[];
+}

@@ -1,8 +1,9 @@
 import { Navigate, useRoutes } from 'react-router-dom';
-import { RouterObj } from '@/typings/router';
+import { modules, RouterObj } from '@/typings/router';
 import Login from '@v/Login/index.tsx';
-// 一异步处理所有路由
-const modules = import.meta.glob('./modules/*.tsx', { eager: true });
+
+// 一异步处理所有路由ss
+const modules: modules = import.meta.glob('./modules/*.tsx', { eager: true });
 console.log(modules, 'modules', typeof modules);
 // 处理路由
 export const routerArray: RouterObj[] = [];
