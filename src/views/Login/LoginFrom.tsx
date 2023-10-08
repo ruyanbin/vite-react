@@ -1,25 +1,31 @@
 import { Form, Input, Checkbox, Button, Row, Col, Divider } from 'antd';
 import FormItem from 'antd/es/form/FormItem';
 import { useState } from 'react';
-import { PROJECT_NAME } from '@/config/config.ts';
+import { HOME_URL, PROJECT_NAME } from '@/config/config.ts';
 import { QqCircleFilled, WalletFilled } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 
 const LoginFrom = () => {
-  const [formData, setFormData] = useState({
+  const navigate = useNavigate();
+  const [formData] = useState({
     userName: '',
     password: '',
-    remのmber: false,
+    remember: false,
     account: '',
   });
-  const onFinsh = (values) => {
+  const onFinsh = (values: any) => {
     console.log(values, '验证');
+    login();
+  };
+  const login = () => {
+    navigate(HOME_URL);
   };
   const onFinshFailed = (errorInfo) => {
     console.log(errorInfo, 'error');
   };
 
   return (
-    <div className="w-1/3 h-1/2 bg-white rounded absolute top-1/4 left-1/3 p-4 box-border">
+    <div className="w-1/3 md:w-500 h-1/2 bg-white rounded absolute top-1/4 left-1/3 p-4 box-border">
       <h2 className="h-1/8 text-3xl leading-8 text-center mb-20 text-blue-500">{PROJECT_NAME}</h2>
       <Form name="login" initialValues={formData} onFinish={onFinsh} onFinishFailed={onFinshFailed}>
         <FormItem name="username">

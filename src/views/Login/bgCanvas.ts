@@ -24,17 +24,17 @@ class Point {
     this.y = getRandom(0, cvs.height - this.r / 2);
     this.xSpeed = getRandom(-50, 50);
     this.ySpeed = getRandom(-50, 50);
-    this.lastdrawTime = null
+    this.lastdrawTime = null;
   }
   draw() {
-      if(this.lastdrawTime){
-          // 获取新的坐标
-          const duration = (Date.now()-this.lastdrewTime)/1000
-          // 距离
-          const xDis = this,.xSpeed * duration, yDis = this.ySpeed * duration;
-          //  新坐标
-
-      }
+    if (this.lastdrawTime) {
+      // 获取新的坐标
+      const duration = (Date.now() - this.lastdrewTime) / 1000;
+      // 距离
+      const xDis = this.xSpeed * duration,
+        yDis = this.ySpeed * duration;
+      //  新坐标
+    }
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.r, Math.PI * 2);
     ctx.fillStyle = `rgba(200,200,200,0.5)`;
