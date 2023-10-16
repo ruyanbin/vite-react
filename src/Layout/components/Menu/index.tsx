@@ -5,13 +5,13 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
-import { Button, Menu } from 'antd';
+import { Menu } from 'antd';
 import Sider from 'antd/es/layout/Sider';
-import React, { memo, useState } from 'react';
-
-const MenuComponent: FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
-  const items = [
+import React, { FC, memo, useState } from 'react';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+const MenuComponent = (props: { collapse: boolean }) => {
+  const { collapse } = props;
+ const items = [
     {
       key: '1',
       icon: <UserOutlined />,
@@ -30,11 +30,11 @@ const MenuComponent: FC = () => {
   ];
   return (
     <>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <Menu mode="inline" theme="dark" inlineCollapsed={collapsed} items={items} />
+      <Sider trigger={null} collapsible collapsed={collapse}>
+        <Menu mode="inline" theme="dark" inlineCollapsed={collapse} items={items} />
       </Sider>
       ;
     </>
   );
 };
-export default memo(MenuComponent);
+export default MenuComponent;

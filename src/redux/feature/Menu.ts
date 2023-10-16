@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+const initialState: { menuList: menuOption[] } = {
+  menuList: [],
+};
 const MenuSlice = createSlice({
   name: 'Menu',
-  initialState: {
-    menuList: [],
-  },
+  initialState,
   reducers: {
-    updateMenulist(state, actions) {
+    updateMenulist(state, actions: { payload: menuOption }) {
       state.menuList = actions.payload;
     },
   },
