@@ -4,3 +4,5 @@ declare module '*.svg' {
 }
 declare module 'react-thunk';
 declare module 'react-logger';
+declare module 'react-icons';
+declare module '@iconify-icon/react';

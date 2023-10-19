@@ -1,0 +1,19 @@
+.ant-tabs-nav{
+    background: #fff;
+}
+.ant-tabs-tab-btn{
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+.ant-tabs-tab{
+    background: #fff;
+    &>button{
+        display: none;
+    }
+    &:hover{
+        &>button{
+            display: inline-block;
+        }
+    }
+}

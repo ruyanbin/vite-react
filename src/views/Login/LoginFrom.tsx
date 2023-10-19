@@ -1,7 +1,7 @@
 import { Form, Input, Checkbox, Button, Row, Col, Divider } from 'antd';
 import FormItem from 'antd/es/form/FormItem';
 import { useState } from 'react';
-import { HOME_URL, PROJECT_NAME } from '@/config/config.ts';
+import { HOME_URL, PROJECT_NAME } from '#/config/config.ts';
 import { QqCircleFilled, WalletFilled } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 

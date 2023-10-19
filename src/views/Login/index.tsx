@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { HOME_URL } from '@/config/config.ts';
+import { HOME_URL } from '#/config/config.ts';
 import { useEffect } from 'react';
-import LoginFrom from '@v/Login/LoginFrom.tsx';
+import LoginFrom from '#v/Login/LoginFrom.tsx';
 // import Circlebg from './car.ts';
 const Login = () => {
   const navigate = useNavigate();

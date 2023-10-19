@@ -1,6 +1,6 @@
 import { Button, Result } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { HOME_URL } from '@/config/config.ts';
+import { HOME_URL } from '#config/config.ts';
 
 const Error403 = () => {
   const navigate = useNavigate();

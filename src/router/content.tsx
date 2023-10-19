@@ -1,2 +1,2 @@
-import Layout from '@/Layout/index';
+import Layout from '#/Layout/index';
 export const LayoutIndex = () => <Layout />;

@@ -4,10 +4,14 @@ import ViteRestart from 'vite-plugin-restart'; //通过监听文件修改，自�
 import { compression } from 'vite-plugin-compression2'; //使用 gzip 或者 brotli 来压缩资源
 // vite.config.ts
 import ViteImages from 'vite-plugin-vue-images'; //自动导入图像，同级目录的文件名不能重复！
+import Icons from 'unplugin-icons/vite';
 export const createPlugins = (isBuild: boolean) => {
   const plugin = [
     react(),
-
+    Icons({
+      /* options */
+    }),
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     ViteImages({
       dirs: ['src/assets'], // 图像目录的相对路径
       extensions: ['jpg', 'jpeg', 'png', 'svg', 'webp'], // 有效的图像扩展

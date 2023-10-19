@@ -11,7 +11,8 @@ declare interface menuActions {
 }
 
 declare interface menuOption {
-  path: string;
+  path?: string;
   title: string;
   icon?: string;
+  children?: menuOption[];
 }

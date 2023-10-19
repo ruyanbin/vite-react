@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { getRandom } from '@/utils/Other.ts';
+import { getRandom } from '#/utils/Other.ts';
 const ctx: any;
 class BgCanvas {
   canvas: any;

@@ -10,8 +10,10 @@ import storageLocation from 'redux-persist/lib/storage';
 
 import logger from 'react-logger';
 
-import MenuSliceReducer from '@s/feature/Menu';
-import globalSlice from '@s/feature/Global';
+import MenuSliceReducer from '#s/feature/Menu';
+import globalSlice from '#s/feature/Global';
+import TabsSlice from '#s/feature/Tabs';
+
 // 持久换存储对象配置
 const presistConfig = {
   key: 'root',
@@ -21,6 +23,7 @@ const presistConfig = {
 const reducers = combineReducers({
   global: globalSlice,
   menu: MenuSliceReducer,
+  tabs: TabsSlice,
 });
 // 持久化处理reduce
 const presistReducer = persistReducer(presistConfig, reducers);

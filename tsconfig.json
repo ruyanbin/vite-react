@@ -21,14 +21,15 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "./",
     "paths": {
-      "@": ["src"],
-      "@/*": ["src/*"],
-      "@a/*": ["src/assets/*"],
-      "@c/*": ["src/components/*"],
-      "@h/*": ["src/hooks/*"],
-      "@v/*": ["src/views/*"],
-      "@p/*": ["src/router/*"],
-      "@s/*": ["src/redux/*"]
+      "#/*": ["src/*"],
+      "#a/*": ["src/assets/*"],
+      "#c/*": ["src/components/*"],
+      "#config/*": ["src/config/*"],
+
+      "#h/*": ["src/hooks/*"],
+      "#v/*": ["src/views/*"],
+      "#p/*": ["src/router/*"],
+      "#s/*": ["src/redux/*"]
     }
   },
   "include": ["src", "./config/**/*.ts", "src/**/*.d.ts"],

@@ -1,6 +1,6 @@
 import { Navigate, useRoutes } from 'react-router-dom';
-import { modules, RouterObj } from '@/typings/router';
-import Login from '@v/Login/index.tsx';
+import { modules, RouterObj } from '#/typings/router';
+import Login from '#v/Login/index.tsx';
 
 // 一异步处理所有路由ss
 const modules: modules = import.meta.glob('./modules/*.tsx', { eager: true });

@@ -1,0 +1,26 @@
+{
+    "menuList":[
+        {
+            "title":"首页",
+            "path":"/home",
+            "icon":"icon-[mdi-light--home]"
+        },
+        {
+            "title":"系统管理",
+            "icon":"icon-[mdi-light--home]",
+            "children":[
+                {
+                    "title":"用户管理",
+                    "path":"/User",
+                    "icon":"icon-[carbon--user]"
+                },
+                {
+                    "title":"角色管理",
+                    "path":"/Role",
+                    "icon":"icon-[majesticons--t-shirt-line]"
+                }
+            ]
+
+        }
+    ]
+}

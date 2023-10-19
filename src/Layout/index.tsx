@@ -1,8 +1,10 @@
 import { Layout } from 'antd';
-import { ContentView } from '@/Layout/components/ContentView.tsx';
-import MenuComponent from '@/Layout/components/Menu/index.tsx';
-import LayoutHeader from '@/Layout/components/HeaderComponent/index.tsx';
+import { ContentView } from '#/Layout/components/ContentView.tsx';
+import MenuComponent from '#/Layout/components/Menu/index.tsx';
+import LayoutHeader from '#/Layout/components/HeaderComponent/index.tsx';
 import { useSelector } from 'react-redux';
+import Menu from '#/config/menu.json';
+import MyTabs from '#/components/Tabs';
 const LayoutIndex = () => {
   const { Header, Footer: Footer } = Layout;
   const collapsed = useSelector(
@@ -12,11 +14,12 @@ const LayoutIndex = () => {
   );
   return (
     <Layout className="min-h-full min-h-full flex flex-row">
-      <MenuComponent collapse={collapsed} />
+      <MenuComponent collapse={collapsed} menuList={Menu.menuList} />
       <Layout>
-        <Header className='bg-white'>
+        <Header className="bg-white">
           <LayoutHeader />
         </Header>
+        <MyTabs />
         <ContentView></ContentView>
         <Footer>Footer</Footer>
       </Layout>
