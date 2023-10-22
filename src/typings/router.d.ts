@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-declare interface RouterObj {
+export interface RouterObj {
   path?: string;
   element: ReactNode;
   children?: RouterObj[];
@@ -8,6 +8,6 @@ declare interface RouterObj {
     title: string;
   };
 }
-declare interface modules {
+export interface modules {
   default: RouterObj[];
 }

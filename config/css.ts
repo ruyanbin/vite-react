@@ -21,7 +21,7 @@ export const cssBaseConfig = () => {
     preprocessorOptions: {
       // css的预处理器选项
       scss: {
-        additionalData: `$injectedColor: orange;`,
+        // additionalData: `$injectedColor: orange;`,
       },
     },
   };

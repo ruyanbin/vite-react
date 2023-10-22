@@ -23,18 +23,22 @@ const LoginFrom = () => {
   const onFinshFailed = (errorInfo) => {
     console.log(errorInfo, 'error');
   };
+  const layout = {
+    labelCol: { span: 12 },
+    wrapperCol: { span: 16 },
+  };
 
   return (
     <div className="w-1/3 md:w-500 h-1/2 bg-white rounded absolute top-1/4 left-1/3 p-4 box-border">
       <h2 className="h-1/8 text-3xl leading-8 text-center mb-20 text-blue-500">{PROJECT_NAME}</h2>
-      <Form name="login" initialValues={formData} onFinish={onFinsh} onFinishFailed={onFinshFailed}>
-        <FormItem name="username">
+      <Form {...layout} name="login" initialValues={formData} onFinish={onFinsh} onFinishFailed={onFinshFailed}>
+        <FormItem label="用户名" name="username" rules={[{ required: true, message: '请输入用户名' }]}>
           <Input placeholder="请输入用户名" />
         </FormItem>
-        <FormItem name="account">
+        <FormItem label="账   号" name="account" rules={[{ required: true, message: '请输入账号' }]}>
           <Input placeholder="请输入账号" />
         </FormItem>
-        <FormItem name="passsword">
+        <FormItem label="密  码" name="passsword" rules={[{ required: true, message: '请输入密码' }]}>
           <Input.Password placeholder="请输入密码" />
         </FormItem>
         <FormItem name="remember" valuePropName="checked">

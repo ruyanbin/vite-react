@@ -1,17 +1,21 @@
 import { Menu } from 'antd';
 import Sider from 'antd/es/layout/Sider';
-
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { UseSelector, useDispatch, useSelector } from 'react-redux';
+import { updateOpenkeys } from '#/redux/feature/Menu';
 import Icon from '#c/Icons/index';
 import './index.scss';
 import { myMenuItem } from '#/typings/menu';
 const MenuComponent = (props: { collapse: boolean; menuList: myMenuItem[] }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { collapse, menuList } = props;
-  const [menuArr, setMenuArr] = useState<myMenuItem[]>([]);
+  const [menuArr, setMenuArr] = useState([]);
   const [defaultSelectedKeys, setDefaultSelectedKeys] = useState('');
+  // 获取存储的key
+  const keys = useSelector((state: { menu: { openkeys: string[] } }) => state.menu.openkeys);
   function getItem(
     label: string,
     key: string,
@@ -27,6 +31,7 @@ const MenuComponent = (props: { collapse: boolean; menuList: myMenuItem[] }) => 
       type,
     } as myMenuItem;
   }
+  // 递归改变数据格式
   const dg = (list: myMenuItem[], arr: myMenuItem[] = []): any[] => {
     list.forEach((it) => {
       if (it.children && it.children.length > 0) {
@@ -47,9 +52,10 @@ const MenuComponent = (props: { collapse: boolean; menuList: myMenuItem[] }) => 
   useEffect(() => {
     setDefaultSelectedKeys(pathname);
   }, [pathname]);
-  const menuClick = (items: { key: string }) => {
+  const menuClick = (items: { key: string; keyPath: string[] }) => {
     console.log(items, 'items');
-    const { key } = items;
+    const { key, keyPath } = items;
+    dispatch(updateOpenkeys(keyPath));
     navigate(key);
   };
 
@@ -61,6 +67,8 @@ const MenuComponent = (props: { collapse: boolean; menuList: myMenuItem[] }) => 
           theme="dark"
           inlineCollapsed={collapse}
           selectedKeys={[defaultSelectedKeys]}
+          openKeys={keys}
+          defaultOpenKeys={[defaultSelectedKeys]}
           defaultSelectedKeys={[defaultSelectedKeys]}
           onClick={menuClick}
           items={menuArr}

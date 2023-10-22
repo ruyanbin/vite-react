@@ -4,7 +4,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 
 // 数据持久化
-import { persistReducer } from 'redux-persist';
+import { persistStore, persistReducer } from 'redux-persist';
 // 默认存储到storage
 import storageLocation from 'redux-persist/lib/storage';
 
@@ -27,7 +27,7 @@ const reducers = combineReducers({
 });
 // 持久化处理reduce
 const presistReducer = persistReducer(presistConfig, reducers);
-const Store = configureStore({
+const store = configureStore({
   /**
      *  如果是函数 它直接用作存储根花简器
 如果是对象 他将对象传递给Redux 中的 combineReducers 实用程序 来自动创建 跟化简其
@@ -37,10 +37,10 @@ const Store = configureStore({
   /**
      *  如果是函数 它直接用作存储根花简器
 如果是对象 他将对象传递给Redux 中的 combineReducers 实用程序 来自动创建 跟化简其
-
      */
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
+      // 解决了序列化问题
       serializableCheck: false,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       logger,
@@ -52,4 +52,5 @@ const Store = configureStore({
   },
 });
 
-export default Store;
+const persistor = persistStore(store);
+export { store, persistor };

@@ -17,6 +17,9 @@ const Home = () => {
       <br />
       <span className="icon-[mdi--bell-outline] hover:icon-hover-[mdi--bell-off]"></span>
       <span className="icon-[carbon--user] hover:icon-hover-[mdi--bell-off]"></span>
+      <br />
+      <span className="icon-[devicon--antdesign]"></span>
+      <span className="icon-[mdi--color]"></span>
     </>
   );
 };

@@ -1,7 +1,7 @@
-declare interface globalStore {
+export interface globalStore {
   collapsed: boolean;
 }
-declare interface menuActions {
+export interface menuActions {
   payload: {
     path: string;
     title: string;
@@ -10,8 +10,8 @@ declare interface menuActions {
   type: string;
 }
 
-declare interface menuOption {
-  path?: string;
+export interface menuOption {
+  path: string;
   title: string;
   icon?: string;
   children?: menuOption[];

@@ -5,7 +5,7 @@ export const ContentView = () => {
   const { Content } = Layout;
   return (
     <>
-      <Content className="p-10">
+      <Content className="p-1">
         <Outlet />
       </Content>
     </>

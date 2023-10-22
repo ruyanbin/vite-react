@@ -25,7 +25,6 @@
       "#a/*": ["src/assets/*"],
       "#c/*": ["src/components/*"],
       "#config/*": ["src/config/*"],
-
       "#h/*": ["src/hooks/*"],
       "#v/*": ["src/views/*"],
       "#p/*": ["src/router/*"],

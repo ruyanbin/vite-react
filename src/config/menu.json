@@ -21,6 +21,39 @@
                 }
             ]
 
-        }
+    },
+    {
+        "title":"antd组件库",
+        "icon":"icon-[devicon--antdesign]",
+        "children":[
+            {
+                "title":"form 使用",
+                "path":"/antd/form",
+                "icon":"icon-[mdi--form]"
+            }
+        ]
+    },
+    {
+        "title":"react知识",
+        "icon":"icon-[fontisto--react]",
+        "children":[
+            {
+                "title":"组件核心属性",
+                "path":"/react/Comp",
+                "icon":"icon-[iconamoon--component]"
+            }
+        ]
+    },
+    {
+        "title":"canvas学信",
+        "icon":"icon-[arcticons--canvasstudent]",
+        "children":[
+            {
+                "title":"组件核心属性",
+                "path":"/canvas/Color",
+                "icon":"icon-[mdi--color]"
+            }
+        ]
+    }
     ]
 }
