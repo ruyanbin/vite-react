@@ -9,7 +9,13 @@ const homeRouter: RouterObj[] = [
     children: [
       {
         path: '/react/Comp',
+        name: 'Comp',
         element: LazyLoad(lazy(() => import('#v/API/Comp'))),
+      },
+      {
+        path: '/react/Formal',
+        name: 'Formal',
+        element: LazyLoad(lazy(() => import('#v/API/Formal'))),
       },
     ],
   },

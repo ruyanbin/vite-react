@@ -9,6 +9,7 @@ const homeRouter: RouterObj[] = [
     children: [
       {
         path: '/antd/form',
+        name: 'Form',
         element: LazyLoad(lazy(() => import('#v/antd/Form.tsx'))),
       },
     ],

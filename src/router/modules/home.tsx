@@ -9,6 +9,7 @@ const homeRouter: RouterObj[] = [
     children: [
       {
         path: HOME_URL,
+        name: 'Home',
         element: <Home />,
       },
     ],

@@ -20,7 +20,7 @@ const LoginFrom = () => {
   const login = () => {
     navigate(HOME_URL);
   };
-  const onFinshFailed = (errorInfo) => {
+  const onFinshFailed = (errorInfo: any) => {
     console.log(errorInfo, 'error');
   };
   const layout = {

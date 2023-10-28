@@ -2,7 +2,7 @@ import { Menu } from 'antd';
 import Sider from 'antd/es/layout/Sider';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { UseSelector, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateOpenkeys } from '#/redux/feature/Menu';
 import Icon from '#c/Icons/index';
 import './index.scss';
@@ -32,7 +32,7 @@ const MenuComponent = (props: { collapse: boolean; menuList: myMenuItem[] }) => 
     } as myMenuItem;
   }
   // 递归改变数据格式
-  const dg = (list: myMenuItem[], arr: myMenuItem[] = []): any[] => {
+  const dg = (list: myMenuItem[], arr: myMenuItem[] = []): myMenuItem[] => {
     list.forEach((it) => {
       if (it.children && it.children.length > 0) {
         arr.push(

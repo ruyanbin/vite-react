@@ -1,5 +1,5 @@
 import { Layout } from 'antd';
-import { ContentView } from '#/Layout/components/ContentView.tsx';
+import { ContentView } from '#/Layout/components/Content/ContentView';
 import MenuComponent from '#/Layout/components/Menu/index.tsx';
 import LayoutHeader from '#/Layout/components/HeaderComponent/index.tsx';
 import { useSelector, useDispatch } from 'react-redux';
@@ -9,6 +9,9 @@ import { useEffect } from 'react';
 import { FloatMenuList } from '#/utils/Menu';
 import { myMenuItem } from '#/typings/menu';
 import { updateFlatMenuList } from '#/redux/feature/Menu';
+import KeepAliveContent from './components/Content/KeepAliveContent';
+import Keep from '#c/keep/index';
+import { Outlet } from 'react-router-dom';
 const LayoutIndex = () => {
   const { Header, Footer: Footer } = Layout;
   const dispatch = useDispatch();
@@ -36,10 +39,13 @@ const LayoutIndex = () => {
           <LayoutHeader />
         </Header>
         <MyTabs />
-        <ContentView></ContentView>
+
+        <Keep></Keep>
+        {/* <KeepAliveContent></KeepAliveContent> */}
         <Footer>Footer</Footer>
       </Layout>
     </Layout>
   );
 };
+// eslint-disable-next-line react-refresh/only-export-components
 export default LayoutIndex;

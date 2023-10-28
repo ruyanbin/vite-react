@@ -30,7 +30,7 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-
+    "react/jsx-uses-react": 2, // g关闭导入React 却没使用验证
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'prettier/prettier': 'error',
     'arrow-body-style': 'off',

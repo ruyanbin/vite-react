@@ -9,6 +9,7 @@ const canvasRouter: RouterObj[] = [
     children: [
       {
         path: '/canvas/Color',
+        name: 'UpdateColor',
         element: LazyLoad(lazy(() => import('#v/canvas/updateColor'))),
       },
     ],

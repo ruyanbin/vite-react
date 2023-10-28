@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import imgUrl from '#a/images/194651nzb2ybimi572ifie.jpg';
 function UpdateColor() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -26,25 +26,40 @@ function UpdateColor() {
     );
   };
   // 话哦去像素点
-  const pointzInedx = (x, y, cvs) => {
+  const pointzInedx = (x: number, y: number, cvs: HTMLCanvasElement) => {
     return (y * cvs.width + x) * 4;
   };
   // 获取颜色
-  const getColor = (x: any, y: any, imgData: Uint8ClampedArray | undefined, cvs: any) => {
+  const getColor = (x: number, y: number, imgData: Uint8ClampedArray, cvs: HTMLCanvasElement) => {
     const index = pointzInedx(x, y, cvs);
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+
     return [imgData[index], imgData[index + 1], imgData[index + 2], imgData[index + 3]];
   };
   // 改变颜色
-  const changeColor = (x, y, targetColor, imageData, cvs) => {
+  const changeColor = (
+    x: number,
+    y: number,
+    targetColo: number[],
+    imageData: Uint8ClampedArray,
+    cvs: HTMLCanvasElement
+  ) => {
     const index = pointzInedx(x, y, cvs);
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    imageData.set(targetColor, index);
+    imageData.set(targetColo, index);
   };
-  const _changeColor = (x, y, targetColor, imageData, cvs, centerColor) => {
+  const _changeColor = (
+    x: number,
+    y: number,
+    targetColor: number[],
+    imageData: ImageData,
+    cvs: HTMLCanvasElement,
+    centerColor: number[]
+  ) => {
     const stack = [[x, y]];
     while (stack.length > 0) {
       const [x, y] = stack.pop();
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       const i = pointzInedx(x, y, cvs);
       const color = getColor(x, y, imageData.data, cvs);
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
@@ -61,14 +76,9 @@ function UpdateColor() {
         continue;
       }
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-      console.log(targetColor, i, 'targetColor');
-      imageData.data.set(targetColor, i);
-      //   imageData.data[i] = targetColor[0];
-      //   imageData.data[i + 1] = targetColor[1];
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      //   imageData.data[i + 2] = targetColor[2];
-      //   imageData.data[i + 3] = targetColor[3];
 
+      imageData.data.set(targetColor, i);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       stack.push([x - 1, y], [x + 1, y], [x, y - 1], [x, y + 1]);
     }
   };
@@ -85,6 +95,21 @@ function UpdateColor() {
       const x: number = e.offsetX;
       const y: number = e.offsetY;
       console.log(x, y);
+      // 获取颜色
+      const imageData = ctx?.getImageData(0, 0, cvs.width, cvs.height);
+      if (imageData) {
+        const clickColor = getColor(x, y, imageData.data, cvs);
+        console.log(clickColor, 'clickColor');
+        _changeColor(x, y, [0, 0, 0, 255], imageData, cvs, clickColor);
+        // g改变颜色
+        // changeColor(x, y, [0, 0, 0, 255], imageData.data, cvs);
+        ctx?.putImageData(imageData, 0, 0);
+      }
+    });
+    return cvs?.removeEventListener('click', () => {
+      // 1 获取点击位置
+      const x: number = e.offsetX;
+      const y: number = e.offsetY;
       // 获取颜色
       const imageData = ctx?.getImageData(0, 0, cvs.width, cvs.height);
       if (imageData) {
