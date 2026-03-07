@@ -1,9 +1,8 @@
 import { Card } from 'antd';
-import React from 'react';
 
 function Comp() {
   return (
-    <Card title="react 组件的核心属性">
+    <Card title='react 组件的核心属性'>
       1. 状态 / this.state
       <p>理解：state 是组件对象最重要的属性，值是== 队形</p>
       <p> 组件被称为状态机，通过更新组件的state 来更新对应页面的渲染</p>

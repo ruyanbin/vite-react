@@ -11,7 +11,7 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:prettier/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'node_modules'],
   settings: {
     react: {
       version: 'detect',
@@ -19,22 +19,47 @@ module.exports = {
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: ['./tsconfig.json', './tsconfig.node.json'], // 指定tsconfig.json文件的路径
-    parser: 'babel-eslint', //解决style标签问题
+    project: ['./tsconfig.json', './tsconfig.node.json'],
     sourceType: 'module',
     tsconfigRootDir: __dirname,
-
-    allowImportExportEverywhere: true, //ignore eslint error: 'import' and 'export' may only appear at the top level
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
-  plugins: ['react-refresh', 'prettier'],
+  plugins: ['prettier', 'react', 'react-hooks', '@typescript-eslint'],
   rules: {
+    // 基础规则
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    "react/jsx-uses-react": 2, // g关闭导入React 却没使用验证
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-    'prettier/prettier': 'error',
+
+    // React 规则
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
+    'react/display-name': 'off',
+
+    // React Hooks 规则 - 关闭过于严格的规则
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'off',
+
+    // 关闭 ESLint v8 不支持的 React Hooks 规则
+    'react-hooks/set-state-in-effect': 'off',
+    'react-hooks/refs': 'off',
+
+    // TypeScript 规则
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unsafe-call': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off',
+    '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    '@typescript-eslint/prefer-nullish-coalescing': 'off',
+
+    // Prettier 规则
+    'prettier/prettier': ['error', {}, { usePrettierrc: true }],
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
   },
 };

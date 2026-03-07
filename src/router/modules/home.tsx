@@ -1,6 +1,7 @@
-import { RouterObj } from '../../typings/router';
-import { HOME_URL } from '../../config/config';
 import Home from '#v/Home/index';
+
+import { HOME_URL } from '../../config/config';
+import { RouterObj } from '../../typings/router';
 import { LayoutIndex } from '../content';
 
 const homeRouter: RouterObj[] = [

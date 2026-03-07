@@ -1,4 +1,5 @@
 import { LazyExoticComponent, ReactNode, Suspense } from 'react';
+
 import { Spin } from 'antd';
 
 const LazyLoad = (Cmp: LazyExoticComponent<any>): ReactNode => {

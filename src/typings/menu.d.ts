@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
+
 export interface myMenuItem {
-  path: string;
+  path?: string;
   title?: string;
   label?: string;
   key?: string;

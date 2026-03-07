@@ -1,6 +1,9 @@
 import LazyLoad from '#p/uitls/lazyLoad.tsx';
+
 import { lazy } from 'react';
+
 import { RouterObj } from '#/typings/router';
+
 const errorRoutrer: RouterObj[] = [
   {
     path: '/403',

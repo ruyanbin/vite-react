@@ -1,24 +1,23 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { ReactNode, useEffect, useMemo, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import { Tabs } from 'antd';
-import React, { ReactNode, useEffect, useMemo, useState } from 'react';
-import Icon from '#c/Icons/index';
-import { useNavigate, useLocation } from 'react-router-dom';
-import './index.scss';
+
+import { useMenuStore } from '#/store/menu';
+import { useTabsStore } from '#/store/tabs';
 import { tabsOption } from '#/typings/menu';
 import { menuOption } from '#/typings/store/index';
-import { useDispatch, useSelector } from 'react-redux';
-import { addTabs, removeTabs } from '#/redux/feature/Tabs';
+
+import Icon from '#c/Icons/index';
+
 function MyTabs() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [activePath, setActivePath] = useState<string>('');
-  const List: menuOption[] = useSelector(
-    (state: { tabs: { tabsList: menuOption[] } }): menuOption[] => state.tabs.tabsList
-  );
-  const flatMenuLIst = useSelector((state: { menu: { flatMenuList: menuOption[] } }): menuOption[] => {
-    return state.menu.flatMenuList || [];
-  });
+  const List: menuOption[] = useTabsStore((state) => state.tabsList);
+  const addTabs = useTabsStore((state) => state.addTabs);
+  const removeTabs = useTabsStore((state) => state.removeTabs);
+  const flatMenuLIst = useMenuStore((state) => state.flatMenuList);
   const getTabsItem = (
     label: ReactNode,
     key: string | number,
@@ -57,16 +56,15 @@ function MyTabs() {
     const index: number = tabList.findIndex((it) => it.key == pathname);
     console.log(index, 'path-----tans');
     if (index == -1) {
-      const routeObject: menuOption | undefined = flatMenuLIst.find(
-        (it: { path: string; title: string }): menuOption | undefined => {
-          if (it.path == pathname) {
-            return it;
-          }
+      const routeObject: menuOption | undefined = flatMenuLIst.find((it: menuOption): boolean => {
+        if (it.path == pathname) {
+          return true;
         }
-      );
+        return false;
+      });
       console.log(routeObject, 'routeObject');
       if (routeObject) {
-        dispatch(addTabs(routeObject));
+        addTabs(routeObject);
       }
     }
 
@@ -80,17 +78,19 @@ function MyTabs() {
   };
   const onEdit = () => {
     console.log(List, 'e');
-    const index: number = List.findIndex((it: { path: string }) => it.path == pathname);
-    const tabsItem: { path: string } = List[index + 1] || List[index - 1];
-    dispatch(removeTabs(index));
-    navigate(tabsItem.path);
+    const index: number = List.findIndex((it: menuOption) => it.path == pathname);
+    const tabsItem: menuOption | undefined = List[index + 1] || List[index - 1];
+    if (tabsItem?.path) {
+      removeTabs(index);
+      navigate(tabsItem.path);
+    }
   };
   return (
     <Tabs
       hideAdd
-      defaultActiveKey="2"
-      type="editable-card"
-      moreIcon={<Icon name="icon-[carbon--close-filled]"></Icon>}
+      defaultActiveKey='2'
+      type='editable-card'
+      moreIcon={<Icon name='icon-[carbon--close-filled]'></Icon>}
       items={tabList}
       activeKey={activePath}
       onChange={onChange}
@@ -98,5 +98,4 @@ function MyTabs() {
     />
   );
 }
-
 export default MyTabs;

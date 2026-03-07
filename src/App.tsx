@@ -1,5 +1,6 @@
-import { ConfigProvider } from 'antd';
 import { RouterView } from '#p/index';
+
+import { ConfigProvider } from 'antd';
 
 function App() {
   return (

@@ -3,59 +3,53 @@
     {
       "title": "首页",
       "path": "/home",
-      "icon": "icon-[mdi-light--home]"
+      "icon": "ant-design:home-filled"
     },
     {
       "title": "系统管理",
-      "icon": "icon-[mdi-light--home]",
+      "icon": "ant-design:setting-outlined",
       "children": [
         {
           "title": "用户管理",
           "path": "/User",
-          "icon": "icon-[carbon--user]"
+          "icon": "ant-design:user-outlined"
         },
         {
           "title": "角色管理",
           "path": "/Role",
-          "icon": "icon-[majesticons--t-shirt-line]"
+          "icon": "ant-design:user-add-outlined"
         }
       ]
     },
     {
       "title": "antd组件库",
-      "icon": "icon-[devicon--antdesign]",
       "children": [
         {
           "title": "form 使用",
           "path": "/antd/form",
-          "icon": "icon-[mdi--form]"
+          "icon": "ant-design:form-outlined"
         }
       ]
     },
     {
       "title": "react知识",
-      "icon": "icon-[fontisto--react]",
       "children": [
         {
           "title": "组件核心属性",
-          "path": "/react/Comp",
-          "icon": "icon-[iconamoon--component]"
+          "path": "/react/Comp"
         },
         {
-            "title": "传值",
-            "path": "/react/Formal",
-            "icon": "icon-[iconamoon--component]"
-          }
+          "title": "传值",
+          "path": "/react/Formal"
+        }
       ]
     },
     {
       "title": "canvas学信",
-      "icon": "icon-[arcticons--canvasstudent]",
       "children": [
         {
           "title": "组件核心属性",
-          "path": "/canvas/Color",
-          "icon": "icon-[mdi--color]"
+          "path": "/canvas/Color"
         }
       ]
     }

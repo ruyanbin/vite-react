@@ -1,25 +1,34 @@
-import { Navigate, useRoutes } from 'react-router-dom';
-import { modules, RouterObj } from '#/typings/router';
 import Login from '#v/Login/index.tsx';
 
+import { Navigate, useRoutes } from 'react-router-dom';
+
+import type { RouterObj } from '#/typings/router';
+
 // 一异步处理所有路由ss
-const modules: modules = import.meta.glob('./modules/*.tsx', { eager: true });
+const modules = (import.meta as any).glob('./modules/*.tsx', { eager: true }) as Record<
+  string,
+  Record<string, RouterObj[]>
+>;
 console.log(modules, 'modules', typeof modules);
 // 处理路由
 export const routerArray: RouterObj[] = [];
 Object.keys(modules).forEach((item) => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument,@typescript-eslint/no-unsafe-member-access
-  Object.keys(modules[item]).forEach((key: string) => {
-    console.log(key, typeof key);
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    routerArray.push(...modules[item][key]);
-  });
+  const module = modules[item];
+  if (module) {
+    Object.keys(module).forEach((key) => {
+      console.log(key, typeof key);
+      const routes = module[key];
+      if (Array.isArray(routes)) {
+        routerArray.push(...routes);
+      }
+    });
+  }
 });
 console.log(routerArray, 'arr');
 const routes = [
   {
     path: '/',
-    element: <Navigate to="/login" />,
+    element: <Navigate to='/login' />,
   },
   {
     path: '/login',
@@ -28,7 +37,7 @@ const routes = [
   ...routerArray,
   {
     path: '*',
-    element: <Navigate to="/404" />,
+    element: <Navigate to='/404' />,
   },
 ];
 

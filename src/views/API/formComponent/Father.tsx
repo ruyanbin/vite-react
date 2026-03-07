@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+
 import Children from './Children';
+
 function Father() {
   const [state, setState] = useState('');
   const arg = '这是父组件传递给子组件的值';

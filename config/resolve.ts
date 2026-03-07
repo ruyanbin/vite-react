@@ -1,4 +1,5 @@
 import { resolve } from 'path';
+
 export const resolveBaseConfig = () => {
   return {
     alias: {

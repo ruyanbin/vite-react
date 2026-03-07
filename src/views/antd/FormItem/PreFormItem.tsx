@@ -1,5 +1,6 @@
 import React from 'react';
-import { Form, Input, Button, Card } from 'antd';
+
+import { Button, Card, Form, Input } from 'antd';
 import type { FormItemProps } from 'antd';
 
 const MyFormItemContext = React.createContext<(string | number)[]>([]);
@@ -31,24 +32,24 @@ function PreFormItem() {
     console.log(value);
   };
   return (
-    <Card title="添加前缀">
-      <Form name="form_item_path" layout="vertical" onFinish={onFinish}>
+    <Card title='添加前缀'>
+      <Form name='form_item_path' layout='vertical' onFinish={onFinish}>
         <MyFormItemGroup prefix={['user']}>
           <MyFormItemGroup prefix={['name']}>
-            <MyFormItem name="firstName" label="First Name">
+            <MyFormItem name='firstName' label='First Name'>
               <Input />
             </MyFormItem>
-            <MyFormItem name="lastName" label="Last Name">
+            <MyFormItem name='lastName' label='Last Name'>
               <Input />
             </MyFormItem>
           </MyFormItemGroup>
 
-          <MyFormItem name="age" label="Age">
+          <MyFormItem name='age' label='Age'>
             <Input />
           </MyFormItem>
         </MyFormItemGroup>
 
-        <Button type="primary" htmlType="submit">
+        <Button type='primary' htmlType='submit'>
           Submit
         </Button>
       </Form>

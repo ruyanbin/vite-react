@@ -1,12 +1,14 @@
-import React, { ReactNode, useLayoutEffect, useRef, useState } from 'react';
+import { ReactNode, useLayoutEffect, useRef } from 'react';
+import { useLocation, useOutlet } from 'react-router-dom';
+
 import KeepAlive from '#/components/KeepAlive';
-import { useOutlet, useLocation } from 'react-router-dom';
+import type { KeepAliveRef } from '#/components/KeepAlive';
 
 function KeepAliveContent() {
   const { pathname } = useLocation();
   const componentList = useRef(new Map());
   const outlet = useOutlet();
-  const keepAliveRef = useRef(null);
+  const keepAliveRef = useRef<KeepAliveRef>(null as unknown as KeepAliveRef);
   useLayoutEffect(() => {
     console.log(1);
     if (!componentList.current.has(pathname)) {

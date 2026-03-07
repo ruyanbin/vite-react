@@ -1,4 +1,5 @@
 import { resolve } from 'path';
+
 export const BuildBaseConfig = () => {
   return {
     target: ['modules'], // 设置最终构建的浏览器兼容目标

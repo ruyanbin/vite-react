@@ -1,5 +1,55 @@
+.ant-layout-sider {
+  transition: all 0.2s ease-in-out;
+
+  .ant-menu {
+    border-right: none;
+
+    .ant-menu-item {
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      &.ant-menu-item-selected {
+        background-color: #1890ff;
+
+        &::after {
+          border-right-color: #1890ff;
+        }
+      }
+    }
+
+    .ant-menu-submenu {
+      .ant-menu-submenu-title {
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          color: #1890ff;
+        }
+      }
+    }
+  }
+}
+
 .ant-layout-sider-collapsed {
   .ant-menu-title-content {
     display: none;
+  }
+
+  .ant-menu {
+    .ant-menu-item {
+      padding: 0 20px;
+
+      .ant-menu-item-icon {
+        margin-right: 0;
+      }
+    }
+
+    .ant-menu-submenu {
+      .ant-menu-submenu-title {
+        padding: 0 20px;
+      }
+    }
   }
 }

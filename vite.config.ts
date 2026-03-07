@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite';
+
+import { cssBaseConfig } from './config/css';
+import { optimizeDepsBaseConfig } from './config/optimizeDeps';
 import { createPlugins } from './config/plugin';
+import { previewBaseConfig } from './config/preview';
 import { resolveBaseConfig } from './config/resolve';
 import { serverConfig } from './config/server';
-import { cssBaseConfig } from './config/css';
-import { previewBaseConfig } from './config/preview';
-import { optimizeDepsBaseConfig } from './config/optimizeDeps';
 import { ssrBaseConfig } from './config/ssr';
+
 // https://vitejs.dev/config/
 export default ({ mode }) => {
   const isBuild = mode == 'production' ? true : false;

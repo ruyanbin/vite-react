@@ -1,14 +1,20 @@
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateCollapsed } from '#/redux/feature/Global';
+import { Icon } from '@iconify/react';
+
+import { useGlobalStore } from '#/store/global';
+
 export default function CollapseComponent() {
-  const dispatch = useDispatch();
-  const status = useSelector((state: { global: { collapsed: boolean } }): boolean => {
-    return state.global.collapsed;
-  });
+  const status = useGlobalStore((state) => state.collapsed);
+  const updateCollapsed = useGlobalStore((state) => state.updateCollapsed);
   const onCollapsed = () => {
-    dispatch(updateCollapsed(!status));
+    updateCollapsed(!status);
   };
-  return <div onClick={onCollapsed}>{status ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}</div>;
+  return (
+    <div onClick={onCollapsed}>
+      {status ? (
+        <Icon icon='ant-design:menu-unfold-outlined' className='text-gray-700 dark:text-gray-200' />
+      ) : (
+        <Icon icon='ant-design:menu-fold-outlined' className='text-gray-700 dark:text-gray-200' />
+      )}
+    </div>
+  );
 }

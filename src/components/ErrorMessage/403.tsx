@@ -1,6 +1,8 @@
-import { Button, Result } from 'antd';
-import { useNavigate } from 'react-router-dom';
 import { HOME_URL } from '#config/config.ts';
+
+import { useNavigate } from 'react-router-dom';
+
+import { Button, Result } from 'antd';
 
 const Error403 = () => {
   const navigate = useNavigate();
@@ -9,11 +11,11 @@ const Error403 = () => {
   };
   return (
     <Result
-      status="403"
-      title="403"
-      subTitle="Sorry, you are not authorized to access this page."
+      status='403'
+      title='403'
+      subTitle='Sorry, you are not authorized to access this page.'
       extra={
-        <Button onClick={goHome} type="primary">
+        <Button onClick={goHome} type='primary'>
           返回首页
         </Button>
       }

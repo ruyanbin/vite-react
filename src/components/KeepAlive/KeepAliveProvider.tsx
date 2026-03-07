@@ -1,5 +1,5 @@
-import React, { ReactNode, createContext, memo, useContext, useEffect, useState } from 'react';
-import KeepAlive from '.';
+import { ReactNode, createContext, memo, useContext, useEffect, useState } from 'react';
+
 export interface KeepAliveContextProps {
   activeName: string | undefined;
   setActiveName: (name: string) => void;

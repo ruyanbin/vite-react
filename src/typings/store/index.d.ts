@@ -11,7 +11,7 @@ export interface menuActions {
 }
 
 export interface menuOption {
-  path: string;
+  path?: string;
   title: string;
   icon?: string;
   children?: menuOption[];

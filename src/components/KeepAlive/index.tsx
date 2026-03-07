@@ -1,9 +1,11 @@
-import { isNull } from '#/utils/is';
 import type { ReactNode, RefObject } from 'react';
-import React, { createElement, memo, useImperativeHandle, useLayoutEffect, useRef, useState } from 'react';
+import { useImperativeHandle, useLayoutEffect, useRef, useState } from 'react';
+
+import { isNull } from '#/utils/is';
+
 import CacheComponent from './CacheComponent';
-import { Outlet } from 'react-router-dom';
 import KeepAliveProvider from './KeepAliveProvider';
+
 export interface ComponentReactElement {
   children?: ReactNode | ReactNode[];
 }
@@ -104,7 +106,7 @@ const KeepAlive = (props: Props) => {
   }, [children, cache, activeName, exclude, include, maxLen]);
   return (
     <>
-      <div ref={containerRef} className="keep-alive">
+      <div ref={containerRef} className='keep-alive'>
         <KeepAliveProvider initialActiveName={activeName}>
           {cacheReactNodes?.map(({ name, cache, ele }) => (
             <CacheComponent active={name === activeName} renderDiv={containerRef} cache={cache} name={name} key={name}>

@@ -1,10 +1,9 @@
-import React from 'react';
-// import * as iconify from '@iconify/json';
+import { Icon } from '@iconify/react';
 
 const IconContainer = (props: { name: string }) => {
   const { name } = props;
 
-  return <div className={name}></div>;
+  return <Icon icon={`ant-design:${name}`} />;
 };
 
 export default IconContainer;
