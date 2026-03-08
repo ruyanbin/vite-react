@@ -63,11 +63,13 @@ export default function ThemeToggle() {
 
   // 应用主题到 document
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    // document.documentElement.setAttribute('data-theme', theme);
     if (theme === 'dark') {
+      document.documentElement.classList.remove('light');
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
     }
   }, [theme]);
 

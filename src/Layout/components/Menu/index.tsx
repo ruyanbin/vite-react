@@ -44,9 +44,9 @@ const MenuComponent = (props: { collapse: boolean; menuList: myMenuItem[] }) => 
   };
 
   return (
-    // mode={collapse ? 'vertical' : 'inline'}
-    <Sider trigger={null} collapsible collapsed={collapse}>
+    <Sider trigger={null} collapsible collapsed={collapse} collapsedWidth={50}>
       <Menu
+        inlineIndent={12}
         mode='inline'
         theme='dark'
         selectedKeys={selectedKeys}

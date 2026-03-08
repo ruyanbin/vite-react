@@ -17,7 +17,7 @@ function Keep() {
   }, [pathname]);
 
   return (
-    <div className='bg-white dark:bg-gray-900 transition-colors duration-300 min-h-[calc(100vh-14rem)]'>
+    <div className='  transition-colors duration-300 h-full'>
       {Array.from(componentList.current).map(([key, component]: [string, ReactNode]) => (
         <div key={key} style={{ display: pathname === key ? 'block' : 'none' }} className='min-h-full'>
           {component}

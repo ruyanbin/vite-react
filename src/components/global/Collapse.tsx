@@ -1,6 +1,6 @@
-import { Icon } from '@iconify/react';
-
 import { useGlobalStore } from '#/store/global';
+
+import IconContainer from '../Icons';
 
 export default function CollapseComponent() {
   const status = useGlobalStore((state) => state.collapsed);
@@ -11,9 +11,9 @@ export default function CollapseComponent() {
   return (
     <div onClick={onCollapsed}>
       {status ? (
-        <Icon icon='ant-design:menu-unfold-outlined' className='text-gray-700 dark:text-gray-200' />
+        <IconContainer name='ant-design:menu-unfold-outlined' />
       ) : (
-        <Icon icon='ant-design:menu-fold-outlined' className='text-gray-700 dark:text-gray-200' />
+        <IconContainer name='ant-design:menu-fold-outlined' />
       )}
     </div>
   );

@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 /* 主题切换动画 */
 html {
@@ -18,6 +16,8 @@ html:not(.dark) {
 }
 
 body {
+  background-color: #ffffff;
+  color: #000000;
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
@@ -41,5 +41,33 @@ body {
 body {
   height: 100vh;
   width: 100vw;
-  all: none;
+}
+
+.header-style {
+  @apply border-b border-gray-200 dark:border-gray-700  transition-colors duration-300;
+}
+
+/* 修复 Input 组件背景色 */
+.ant-input,
+.ant-input-password {
+  /* background-color: transparent !important; */
+}
+
+.ant-input:hover,
+.ant-input-password:hover,
+.ant-input:focus,
+.ant-input-password:focus {
+  background-color: transparent !important;
+}
+
+.dark .ant-input,
+.dark .ant-input-password {
+  background-color: transparent !important;
+}
+
+.dark .ant-input:hover,
+.dark .ant-input-password:hover,
+.dark .ant-input:focus,
+.dark .ant-input-password:focus {
+  background-color: #1f1f1f !important;
 }
