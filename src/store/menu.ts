@@ -13,7 +13,7 @@ interface MenuState {
   updateFlatMenuList: (flatMenuList: menuOption[]) => void;
 }
 
- const useMenuStore = create<MenuState>((set) => ({
+const useMenuStore = create<MenuState>((set) => ({
   menuList: [],
   openKeys: [],
   flatMenuList: [],

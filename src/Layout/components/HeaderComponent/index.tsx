@@ -1,8 +1,8 @@
 import ThemeToggle from '#/Layout/components/HeaderComponent/HeaderLeft/ThemeToggle';
 import CollapseComponent from '#/components/global/Collapse';
 
-import Bread from './HeaderRight/Bread';
 import LoginStatus from './HeaderLeft/LoginStatus';
+import Bread from './HeaderRight/Bread';
 
 export default function LayoutHeader() {
   return (

@@ -7,8 +7,8 @@ import LayoutHeader from '#/Layout/components/HeaderComponent/index.tsx';
 import MenuComponent from '#/Layout/components/Menu/index.tsx';
 import Menu from '#/config/menu.json';
 import { useGlobalStore } from '#/store/global';
-import { useMenuStore } from '#/store/menu';
-import { FloatMenuList, FloatRouterDetail, generatePathTitleMap, getRouteToParentMap } from '#/utils/Menu';
+import useMenuStore from '#/store/menu';
+import { FloatMenuList, generatePathTitleMap } from '#/utils/Menu';
 
 import Keep from '#c/keep/index';
 
