@@ -20,7 +20,7 @@ const LoginStatus = () => {
 
   const menuItems = [
     {
-      label: <div className='text-sm font-medium text-gray-700 dark:text-gray-200'>{userInfo?.name || '用户'}</div>,
+      label: <div className='text-sm font-medium'>{userInfo?.name || '用户'}</div>,
       key: 'userInfo',
       disabled: true,
     },
@@ -42,7 +42,7 @@ const LoginStatus = () => {
   if (!isLogin) {
     return (
       <div
-        className='text-sm font-medium text-gray-700 dark:text-gray-200 cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors'
+        className='text-sm font-medium cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors'
         onClick={handleLoginClick}
       >
         登录
@@ -52,10 +52,10 @@ const LoginStatus = () => {
 
   return (
     <Dropdown menu={{ items: menuItems }} placement='bottomRight' trigger={['click']}>
-      <div className='flex items-center gap-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg px-3 py-2 transition-colors'>
+      <div className='flex items-center gap-2 cursor-pointer  rounded-lg px-3 py-2 transition-colors'>
         <IconContainer name='ant-design:user-outlined' className='text-lg' />
-        <span className='text-sm font-medium text-gray-700 dark:text-gray-200'>{userInfo?.name || '用户'}</span>
-        <IconContainer name='ant-design:down-outlined' className='text-xs text-gray-500 dark:text-gray-400' />
+        <span className='text-sm font-medium  '>{userInfo?.name || '用户'}</span>
+        <IconContainer name='ant-design:down-outlined' className='text-xs' />
       </div>
     </Dropdown>
   );

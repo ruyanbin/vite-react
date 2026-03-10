@@ -16,3 +16,7 @@ export interface menuOption {
   icon?: string;
   children?: menuOption[];
 }
+
+ export interface treeMenuOption{ 
+  key:Array<menuOption>
+}

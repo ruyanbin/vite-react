@@ -11,9 +11,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid #000;
+  border: 1px solid;
   padding: 0 12px;
-
+  border-color: var(--ant-blue-1);
   border-radius: 4px;
   height: 32px;
   font-size: 12px;
