@@ -17,6 +17,6 @@ export interface menuOption {
   children?: menuOption[];
 }
 
- export interface treeMenuOption{ 
-  key:Array<menuOption>
+export interface treeMenuOption {
+  key: menuOption[];
 }

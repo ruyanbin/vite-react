@@ -1,14 +1,16 @@
+
+
 import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { Breadcrumb } from 'antd';
 
-import { useMenuStore } from '#/store/menu';
 import IconContainer from '#/components/Icons';
+import useMenuStore from '#/store/menu';
 
 export default function BreadcrumbComponent() {
   const { pathname } = useLocation();
-  const pathTitleMap = useMenuStore((state) => state.pathTitleMap);
+  const { pathTitleMap } = useMenuStore();
 
   const breadcrumbItems = useMemo(() => {
     const items = pathTitleMap[pathname] || [];
@@ -17,15 +19,11 @@ export default function BreadcrumbComponent() {
       title: (
         <>
         {item.icon && <IconContainer name={item.icon} />}
-          <span >{item.title}</span>
+          <span>{item.title}</span>
         </>
       ),
     }));
   }, [pathname, pathTitleMap]);
 
-  return (
-    <div className='flex items-center flex-1'>
-      <Breadcrumb items={breadcrumbItems} />
-    </div>
-  );
+  return <Breadcrumb items={breadcrumbItems} />;
 }
