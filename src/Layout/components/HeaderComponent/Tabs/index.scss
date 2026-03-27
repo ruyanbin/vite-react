@@ -1,37 +1,36 @@
 .ant-tabs {
-  @apply bg-white dark:bg-gray-900 transition-colors duration-300;
+    @apply bg-white dark:bg-gray-900 transition-colors duration-300;
 }
 
 .active {
-  border-color: var(--ant-blue-600) !important;
-  color: var(--ant-blue-4) !important;
+    border-color: var(--ant-primary-color)!important;
+    color: #fff;
+    background-color: #1890ff;
 }
 
-.tabitem {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid;
-  padding: 0 12px;
-  border-color: var(--ant-blue-1);
-  border-radius: 4px;
-  height: 32px;
-  font-size: 12px;
-  cursor: pointer;
-  .removeClass {
-    display: none;
-  }
-
-  &:hover {
-    border-color: var(--ant-blue-600);
-    color: var(--ant-blue-4);
-
+.tabItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid;
+    padding: 0 12px;
+    border-color: var(--ant-border-color-split);
+    border-radius: var(--ant-border-radius);
+    height: 32px;
+    font-size: 12px;
+    cursor: pointer;
     .removeClass {
-      display: block;
-      font-size: 14px;
-      width: 14px;
-      height: 14px;
-      margin-left: 4px;
+        display: none;
     }
-  }
+
+    &:hover {
+
+        .removeClass {
+            display: block;
+            font-size: 14px;
+            width: 14px;
+            height: 14px;
+            margin-left: 4px;
+        }
+    }
 }

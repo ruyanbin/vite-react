@@ -1,6 +1,6 @@
-import { useGlobalStore } from '#/store/global';
+import { useGlobalStore } from '#/store/global.ts';
 
-import IconContainer from '../Icons';
+import IconContainer from '#c/Icons';
 
 export default function CollapseComponent() {
   const status = useGlobalStore((state) => state.collapsed);
@@ -9,7 +9,7 @@ export default function CollapseComponent() {
     updateCollapsed(!status);
   };
   return (
-    <div onClick={onCollapsed}>
+    <div className='cursor-pointer flex items-center justify-center' onClick={onCollapsed}>
       {status ? (
         <IconContainer name='ant-design:menu-unfold-outlined' />
       ) : (

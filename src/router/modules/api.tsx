@@ -20,6 +20,16 @@ const homeRouter: RouterObj[] = [
         name: 'Formal',
         element: LazyLoad(lazy(() => import('#v/API/Formal'))),
       },
+      {
+        path: '/react/ActionState',
+        name: 'ActionState',
+        element: LazyLoad(lazy(() => import('#v/API/ActionState'))),
+      },
+      {
+        path: '/react/ParentContext',
+        name: 'ParentContext',
+        element: LazyLoad(lazy(() => import('#v/API/Content/ParentContext'))),
+      },
     ],
   },
 ];

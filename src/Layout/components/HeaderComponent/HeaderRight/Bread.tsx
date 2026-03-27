@@ -12,16 +12,17 @@ export default function BreadcrumbComponent() {
 
   const breadcrumbItems = useMemo(() => {
     const items = pathTitleMap[pathname] || [];
+    console.log(items, 'items');
     return items.map((item, index) => ({
       key: item.path || index,
       title: (
-        <>
-        {item.icon && <IconContainer name={item.icon} />}
+        <div className='flex items-center'>
+          {item.icon && <IconContainer name={item.icon} />}
           <span>{item.title}</span>
-        </>
+        </div>
       ),
     }));
   }, [pathname, pathTitleMap]);
 
-  return <Breadcrumb items={breadcrumbItems} />;
+  return <Breadcrumb className='flex items-center' items={breadcrumbItems} />;
 }

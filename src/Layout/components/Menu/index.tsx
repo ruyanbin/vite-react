@@ -6,7 +6,7 @@ import { Menu } from 'antd';
 import Sider from 'antd/es/layout/Sider';
 import type { ItemType } from 'antd/es/menu/interface';
 
-import { useMenuStore } from '#/store/menu';
+import useMenuStore from '#/store/menu';
 import type { myMenuItem } from '#/typings/menu';
 
 const MenuComponent = (props: { collapse: boolean; menuList: myMenuItem[] }) => {

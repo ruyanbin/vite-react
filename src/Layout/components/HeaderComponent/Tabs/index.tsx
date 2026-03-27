@@ -1,13 +1,51 @@
 import { ReactNode, useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+
+
 import IconContainer from '#/components/Icons';
 import useMenuStore from '#/store/menu';
 import { useTabsStore } from '#/store/tabs';
 import { tabsOption } from '#/typings/menu';
 import { menuOption } from '#/typings/store/index';
 
+
+
 import './index.scss';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function MyTabs() {
   const navigate = useNavigate();
@@ -66,7 +104,6 @@ function MyTabs() {
         }
         return false;
       });
-      console.log(routeObject, 'routeObject');
       if (routeObject) {
         addTabs(routeObject);
       }
@@ -100,8 +137,10 @@ function MyTabs() {
       {tabList.map((it: tabsOption, index: number) => {
         const isActive = it.key === activePath;
         return (
-          <div key={it.key} className={`tabitem ${isActive ? 'active' : ''}`}>
-            <div onClick={() => handleTabClick(it.key)}>{it.label}</div>
+          <div key={it.key} className={`tabItem ${isActive ? 'active' : ''}`}>
+            <div className={` ${isActive ? 'active' : ''}`} onClick={() => handleTabClick(it.key)}>
+              {it.label}
+            </div>
 
             {it.closable && (
               <IconContainer

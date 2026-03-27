@@ -1,5 +1,5 @@
 import ThemeToggle from '#/Layout/components/HeaderComponent/HeaderLeft/ThemeToggle';
-import CollapseComponent from '#/components/global/Collapse';
+import CollapseComponent from '#/Layout/components/HeaderComponent/HeaderRight/Collapse.tsx';
 
 import LoginStatus from './HeaderLeft/LoginStatus';
 import Bread from './HeaderRight/Bread';

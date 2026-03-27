@@ -23,6 +23,7 @@ const LayoutIndex = () => {
     updateFlatMenuList(list);
 
     const list2 = generatePathTitleMap(Menu.menuList);
+    console.log(list2, 'list2');
     updatePathTitleMap(list2);
   }, [updateFlatMenuList]);
   return (
