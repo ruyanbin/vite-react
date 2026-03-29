@@ -1,51 +1,13 @@
 import { ReactNode, useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-
-
 import IconContainer from '#/components/Icons';
 import useMenuStore from '#/store/menu';
 import { useTabsStore } from '#/store/tabs';
 import { tabsOption } from '#/typings/menu';
 import { menuOption } from '#/typings/store/index';
 
-
-
 import './index.scss';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function MyTabs() {
   const navigate = useNavigate();
