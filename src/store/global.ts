@@ -9,7 +9,7 @@ interface GlobalState {
 export const useGlobalStore = create<GlobalState>()(
   persist(
     (set) => ({
-      collapsed: false,
+      collapsed: true,
       updateCollapsed: (collapsed) => set({ collapsed }),
     }),
     {
