@@ -1,55 +1,13 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
-
 import { Icon } from '@iconify/react';
 import { Button, Card, Checkbox, Col, Divider, Form, Input, Row } from 'antd';
 import FormItem from 'antd/es/form/FormItem';
 
-
-
 import IconContainer from '#/components/Icons';
 import { HOME_URL, PROJECT_NAME } from '#/config/config.ts';
 import { useUserStore } from '#/store/user';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 interface LoginFormValues {
   username: string;
@@ -62,15 +20,15 @@ const LoginFrom = () => {
   const navigate = useNavigate();
   const { login } = useUserStore();
   const [form] = Form.useForm<LoginFormValues>();
- useEffect(() => {
-   console.log('登录');
-   form.setFieldsValue({
-     username: 'admin',
-     account: 'admin',
-     password: '123456',
-     remember: true,
-   });
- }, [form]);
+  useEffect(() => {
+    console.log('登录');
+    form.setFieldsValue({
+      username: 'admin',
+      account: 'admin',
+      password: '123456',
+      remember: true,
+    });
+  }, [form]);
   const onFinish = (values: LoginFormValues) => {
     console.log(values, '验证');
     login({ name: values.username || '用户' });
