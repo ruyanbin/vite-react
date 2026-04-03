@@ -1,25 +1,76 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+
 
 import { Icon } from '@iconify/react';
 import { Button, Card, Checkbox, Col, Divider, Form, Input, Row } from 'antd';
 import FormItem from 'antd/es/form/FormItem';
 
+
+
 import IconContainer from '#/components/Icons';
 import { HOME_URL, PROJECT_NAME } from '#/config/config.ts';
 import { useUserStore } from '#/store/user';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 interface LoginFormValues {
   username: string;
   account: string;
   password: string;
-  remember?: boolean;
+  remember: boolean;
 }
 
 const LoginFrom = () => {
   const navigate = useNavigate();
   const { login } = useUserStore();
   const [form] = Form.useForm<LoginFormValues>();
-
+ useEffect(() => {
+   console.log('登录');
+   form.setFieldsValue({
+     username: 'admin',
+     account: 'admin',
+     password: '123456',
+     remember: true,
+   });
+ }, [form]);
   const onFinish = (values: LoginFormValues) => {
     console.log(values, '验证');
     login({ name: values.username || '用户' });
@@ -68,13 +119,14 @@ const LoginFrom = () => {
       <Form
         form={form}
         name='login'
-        initialValues={{ remember: false, username: '', account: '', password: '' }}
+        layout='horizontal'
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
+        autoComplete='off'
         size='large'
       >
         <FormItem
-          label={<span className='text-gray-700 dark:text-gray-300'>用户名</span>}
+          label={<span>用户名</span>}
           layout='vertical'
           name='username'
           rules={[{ required: true, message: '请输入用户名' }]}
@@ -110,21 +162,21 @@ const LoginFrom = () => {
           <Input.Password allowClear onClear={() => form.setFieldValue('password', '')} placeholder='请输入密码' />
         </FormItem>
 
-        <FormItem name='remember' valuePropName='checked' className='mb-4'>
-          <Row justify='space-between' align='middle'>
-            <Col>
+        <Row justify='space-between' align='middle'>
+          <Col>
+            <FormItem name='remember' valuePropName='checked' className='mb-4'>
               <Checkbox className='text-gray-600 dark:text-gray-400'>记住密码</Checkbox>
-            </Col>
-            <Col>
-              <Button
-                type='link'
-                className='p-0 h-auto text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-400'
-              >
-                忘记密码
-              </Button>
-            </Col>
-          </Row>
-        </FormItem>
+            </FormItem>
+          </Col>
+          <Col>
+            <Button
+              type='link'
+              className='p-0 h-auto text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-400'
+            >
+              忘记密码
+            </Button>
+          </Col>
+        </Row>
 
         <FormItem>
           <Button

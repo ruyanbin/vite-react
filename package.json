@@ -28,6 +28,7 @@
     "react-router-dom": "^7.13.1",
     "sass": "^1.97.3",
     "vite-plugin-legacy": "^2.1.0",
+    "vite-plugin-mock": "^3.0.2",
     "zustand": "^5.0.11"
   },
   "lint-staged": {
@@ -65,6 +66,7 @@
     "husky": "^9.1.7",
     "i": "^0.3.7",
     "lint-staged": "^16.3.2",
+    "mockjs": "^1.1.0",
     "npm": "^11.11.0",
     "postcss": "^8.5.8",
     "postcss-px-to-viewport": "^1.1.1",

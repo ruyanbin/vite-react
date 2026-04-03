@@ -3,8 +3,8 @@ import { useLocation } from 'react-router-dom';
 
 import { Breadcrumb } from 'antd';
 
-import IconContainer from '#/components/Icons';
-import useMenuStore from '#/store/menu';
+import IconContainer from '#/components/Icons/index';
+import useMenuStore from '#/store/menu.ts';
 
 export default function BreadcrumbComponent() {
   const { pathname } = useLocation();
@@ -12,7 +12,6 @@ export default function BreadcrumbComponent() {
 
   const breadcrumbItems = useMemo(() => {
     const items = pathTitleMap[pathname] || [];
-    console.log(items, 'items');
     return items.map((item, index) => ({
       key: item.path || index,
       title: (

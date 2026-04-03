@@ -1,27 +1,48 @@
-import { Input, Radio, Select } from 'antd';
+import { DatePicker, Input, Radio, Select } from 'antd';
 
 import { FormItemProps } from '#/typings/components/form';
 
-const FormItem = (Item: FormItemProps) => {
-  if (Item.renderFormItem) {
-    return Item.renderFormItem();
-  }
-  if (Item.type === 'select') {
-    return <Select placeholder={`请选择${Item.title}`} {...Item} options={Item.options || []} />;
+/**
+ * 表单项组件
+ * 根据不同的类型渲染不同的表单控件
+ * @param {FormItemProps} item - 表单项的属性配置对象
+ */
+const FormItem = (item: FormItemProps) => {
+  // 从item中解构出表单项的各个属性
+  const { title, type, renderFormItem, options, dataIndex, ...restProps } = item;
+
+  // 如果有自定义渲染函数，则优先使用自定义渲染
+  if (renderFormItem) {
+    return renderFormItem();
   }
 
-  if (Item.type === 'Radio') {
-    return <Radio.Group {...Item} />;
+  // 根据不同的表单项类型渲染不同的控件
+  if (type === 'select') {
+    return <Select allowClear placeholder={`请选择${title}`} options={options || []} {...restProps} />;
   }
 
-  if (Item.type === 'date') {
-    return <Input type='date' placeholder={`请选择${Item.title}`} {...Item} />;
-  }
-  if (Item.type === 'datetime') {
-    return <Input type='datetime-local' placeholder={`请选择${Item.title}`} {...Item} />;
+  // 渲染单选按钮组
+  if (type === 'Radio') {
+    return <Radio.Group {...restProps} />;
   }
 
-  return <Input placeholder={`请输入${Item.title}`} {...Item} />;
+  // 渲染日期选择器
+  if (type === 'date') {
+    return <DatePicker allowClear className='w-full' placeholder={`请选择${title}`} {...restProps} />;
+  }
+
+  // 渲染日期时间选择器
+  if (type === 'datetime') {
+    return <Input allowClear type='datetime-local' placeholder={`请选择${title}`} {...restProps} />;
+  }
+
+  // 渲染文本域
+  if (type === 'textarea') {
+    return <Input.TextArea allowClear placeholder={`请输入${title}`} {...restProps} />;
+  }
+
+  // 默认渲染普通输入框
+  return <Input allowClear placeholder={`请输入${title}`} {...restProps} />;
 };
 
 export default FormItem;

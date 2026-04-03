@@ -2,14 +2,18 @@ import { useNavigate } from 'react-router-dom';
 
 import { Dropdown } from 'antd';
 
-import IconContainer from '#/components/Icons';
-import { useUserStore } from '#/store/user';
+import { useTabsStore } from '#/store/tabs.ts';
+import { useUserStore } from '#/store/user.ts';
+
+import IconContainer from '#c/Icons';
 
 const LoginStatus = () => {
   const { isLogin, userInfo, logout } = useUserStore();
+  const { clearTabs } = useTabsStore();
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    clearTabs();
     logout();
     navigate('/login');
   };

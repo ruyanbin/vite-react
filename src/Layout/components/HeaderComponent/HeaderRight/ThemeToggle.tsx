@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 import { Icon } from '@iconify/react';
 
-import { useThemeStore } from '#/store/theme';
+import { useThemeStore } from '#/store/theme.ts';
 
 export default function ThemeToggle() {
   const { theme, toggleTheme, setIsAnimating } = useThemeStore();

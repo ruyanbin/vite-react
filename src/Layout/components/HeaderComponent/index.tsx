@@ -1,8 +1,8 @@
-import ThemeToggle from '#/Layout/components/HeaderComponent/HeaderLeft/ThemeToggle';
-import CollapseComponent from '#/Layout/components/HeaderComponent/HeaderRight/Collapse.tsx';
+import ThemeToggle from '#/Layout/components/HeaderComponent/HeaderRight/ThemeToggle.tsx';
+import CollapseComponent from '#/Layout/components/HeaderComponent/HeaderLeft/Collapse.tsx';
 
-import LoginStatus from './HeaderLeft/LoginStatus';
-import Bread from './HeaderRight/Bread';
+import LoginStatus from './HeaderRight/LoginStatus.tsx';
+import Bread from './HeaderLeft/Bread.tsx';
 
 export default function LayoutHeader() {
   return (

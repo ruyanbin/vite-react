@@ -7,6 +7,7 @@ interface TabsState {
   tabsList: menuOption[];
   addTabs: (tab: menuOption) => void;
   removeTabs: (index: number) => void;
+  clearTabs: () => void;
 }
 
 export const useTabsStore = create<TabsState>()(
@@ -27,6 +28,7 @@ export const useTabsStore = create<TabsState>()(
           newTabsList.splice(index, 1);
           return { tabsList: newTabsList };
         }),
+      clearTabs: () => set({ tabsList: [] }),
     }),
     {
       name: 'tabs-storage',
